@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 
 public class DAOEmpleados {
-
+	/*COSO PRUEBA*/
 	private static final String ALL_EMPLEADOS = "SELECT * FROM EMPLEADOS";
 	private static final String INSERTL_EMPLEADO = "INSERT INTO EMPLEADOS (CEDULA, NOMBRE, APELLIDO) VALUES  (?,?,?)";
 	private static final String UPDATE_EMPLEADO = "UPDATE EMPLEADOS SET  NOMBRE=?, APELLIDO=? WHERE CEDULA =?";
