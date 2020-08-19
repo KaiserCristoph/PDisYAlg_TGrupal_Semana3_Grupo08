@@ -1,4 +1,3 @@
-
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.BorderFactory;
@@ -13,7 +12,7 @@ import java.util.LinkedList;
 public class MostrarTodo extends JFrame {
 
 	public void mostrar(){
-
+		/*-----*/
 		JFrame frame =new JFrame("Mostrar");
 
 		// creamos el modelo de Tabla
