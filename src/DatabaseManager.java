@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.Locale;
 
 public class DatabaseManager {
-	
+	//lo que salga
 	private static Connection databaseConnection;
 	
 	private static String Connection_String = "jdbc:oracle:thin:@localhost:1521:xe";
