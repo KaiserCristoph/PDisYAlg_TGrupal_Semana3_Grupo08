@@ -11,7 +11,7 @@ public class DAOEmpleados {
 	private static final String UPDATE_EMPLEADO = "UPDATE EMPLEADOS SET  NOMBRE=?, APELLIDO=? WHERE CEDULA =?";
 	private static final String DELETE_EMPLEADO = "DELETE FROM EMPLEADOS WHERE CEDULA=?";
 	private static final String EMPLEADO_CI = "SELECT * FROM EMPLEADOS WHERE CEDULA=?";
-	
+	//askcs
 	
 	public static boolean insert (Empleado empleado){
 		try {
