@@ -35,7 +35,7 @@ public class DatabaseManager {
 					e.printStackTrace();
 				}
 				//se agrega excepcion donde no el msj imprime que no se tiene los driver para realizar la conexion
-	}catch (ClassNotFoundException e) {
+		}catch (ClassNotFoundException e) {
 		
 		System.out.println("Tu build-path no cuneta con el driver?");
 		e.printStackTrace();
