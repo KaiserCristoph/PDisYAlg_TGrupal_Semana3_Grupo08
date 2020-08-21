@@ -1,6 +1,6 @@
 
 public class Empleado {
-
+// orale wei
 
 	private String nombre;
 	private String apellido;
