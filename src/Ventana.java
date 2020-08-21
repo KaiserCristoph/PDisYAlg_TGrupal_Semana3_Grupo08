@@ -17,6 +17,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.Font;
 
 public class Ventana {
 
@@ -31,6 +32,7 @@ public class Ventana {
 	private JTextField txtCedula;
 	private JTextField txtApellido;
 	private JTextField txtNombre;
+	private JLabel lblNewLabel_1;
 
 	/**
 	 * Launch the application.
@@ -63,7 +65,7 @@ public class Ventana {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel contentPane = new JPanel();
-		contentPane.setBackground(new Color(176, 196, 222));
+		contentPane.setBackground(new Color(119, 136, 153));
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 2));
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -157,11 +159,13 @@ public class Ventana {
 		panel_2.add(txtNombre);
 		
 		JLabel lblNewLabel = new JLabel("X");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if(JOptionPane.showConfirmDialog(null, "Estas seguro que deseas salir?", "Confirmar", JOptionPane.YES_NO_OPTION) == 0);{			
 						System.exit(0);	
+						//Ventana.this.dispose();
 				}
 			}
 			public void mouseEntered(MouseEvent e) {
@@ -173,7 +177,7 @@ public class Ventana {
 		});
 		lblNewLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(431, 0, 19, 20);
+		lblNewLabel.setBounds(418, 0, 32, 33);
 		contentPane.add(lblNewLabel);
 		frame.setUndecorated(true);
 		frame.setLocationRelativeTo(null);
@@ -195,6 +199,7 @@ public class Ventana {
 		textNombre.setColumns(10);
 		*/
 		JButton btnAlta = new JButton("Alta");
+		btnAlta.setBackground(new Color(255, 255, 255));
 		btnAlta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String ci=txtCedula.getText();
@@ -209,6 +214,7 @@ public class Ventana {
 		frame.getContentPane().add(btnAlta);
 		
 		btnEliminar = new JButton("Eliminar");
+		btnEliminar.setBackground(new Color(255, 255, 255));
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String ci=txtCedula.getText();
@@ -222,6 +228,7 @@ public class Ventana {
 		frame.getContentPane().add(btnEliminar);
 		
 		btnBuscar = new JButton("Buscar");
+		btnBuscar.setBackground(new Color(255, 255, 255));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -236,6 +243,7 @@ public class Ventana {
 		frame.getContentPane().add(btnBuscar);
 		
 		btnModificar = new JButton("Modificar");
+		btnModificar.setBackground(new Color(255, 255, 255));
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String ci=txtCedula.getText();
@@ -259,6 +267,12 @@ public class Ventana {
 		});
 		btnMostrarTodo.setBounds(137, 251, 189, 33);
 		frame.getContentPane().add(btnMostrarTodo);
+		
+		lblNewLabel_1 = new JLabel("Manejador de Empleados");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(113, 16, 229, 35);
+		contentPane.add(lblNewLabel_1);
 		/*
 		JLabel lblCedula = new JLabel("cedula");
 		lblCedula.setBounds(48, 39, 46, 14);
