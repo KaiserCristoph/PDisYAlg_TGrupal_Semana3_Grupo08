@@ -8,8 +8,8 @@ public class DatabaseManager {
 	private static Connection databaseConnection;
 	
 	private static String Connection_String = "jdbc:oracle:thin:@localhost:1521:xe";
-	private static String usuario = "system";
-	private static String contraseña = "12345";
+	private static String usuario = "EMPLEADO";
+	private static String contraseña = "EMPLEADO";
 	
 	
 	static{

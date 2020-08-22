@@ -6,11 +6,11 @@ import java.util.LinkedList;
 
 public class DAOEmpleados {
 	
-	private static final String ALL_EMPLEADOS = "SELECT * FROM EMPLEADOS";
-	private static final String INSERT_EMPLEADO = "INSERT INTO EMPLEADOS (CEDULA, NOMBRE, APELLIDO) VALUES  (?,?,?)";
-	private static final String UPDATE_EMPLEADO = "UPDATE EMPLEADOS SET  NOMBRE=?, APELLIDO=? WHERE CEDULA =?";
-	private static final String DELETE_EMPLEADO = "DELETE FROM EMPLEADOS WHERE CEDULA=?";
-	private static final String EMPLEADO_CI = "SELECT * FROM EMPLEADOS WHERE CEDULA=?";
+	private static final String ALL_EMPLEADOS = "SELECT * FROM EMPLEADO";
+	private static final String INSERT_EMPLEADO = "INSERT INTO EMPLEADO (ID_EMPLEADO, CEDULA, NOMBRE, APELLIDO) VALUES (SEQ_ID_EMPLEADO.nextval,?,?,?)";
+	private static final String UPDATE_EMPLEADO = "UPDATE EMPLEADO SET  NOMBRE=?, APELLIDO=? WHERE CEDULA =?";
+	private static final String DELETE_EMPLEADO = "DELETE FROM EMPLEADO WHERE CEDULA=?";
+	private static final String EMPLEADO_CI = "SELECT * FROM EMPLEADO WHERE CEDULA=?";
 	
 	
 	public static boolean insert (Empleado empleado){
@@ -71,6 +71,7 @@ public class DAOEmpleados {
 		try {
 			PreparedStatement statement = DatabaseManager.getConnection().prepareStatement(ALL_EMPLEADOS);
 			ResultSet resultado = statement.executeQuery();
+			
 			while(resultado.next()){
 				Empleado empleado = getEmpleadoFromResultSet(resultado);
 				empleados.add(empleado);
