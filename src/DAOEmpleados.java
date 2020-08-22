@@ -3,19 +3,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
-/*Rodrigo: PUSH DE PRUEBA*/
 
 public class DAOEmpleados {
+	
 	private static final String ALL_EMPLEADOS = "SELECT * FROM EMPLEADOS";
-	private static final String INSERTL_EMPLEADO = "INSERT INTO EMPLEADOS (CEDULA, NOMBRE, APELLIDO) VALUES  (?,?,?)";
+	private static final String INSERT_EMPLEADO = "INSERT INTO EMPLEADOS (CEDULA, NOMBRE, APELLIDO) VALUES  (?,?,?)";
 	private static final String UPDATE_EMPLEADO = "UPDATE EMPLEADOS SET  NOMBRE=?, APELLIDO=? WHERE CEDULA =?";
 	private static final String DELETE_EMPLEADO = "DELETE FROM EMPLEADOS WHERE CEDULA=?";
 	private static final String EMPLEADO_CI = "SELECT * FROM EMPLEADOS WHERE CEDULA=?";
-	//askcs
+	
 	
 	public static boolean insert (Empleado empleado){
 		try {
-			PreparedStatement statement = DatabaseManager.getConnection().prepareStatement(INSERTL_EMPLEADO);
+			PreparedStatement statement = DatabaseManager.getConnection().prepareStatement(INSERT_EMPLEADO);
 		
 			statement.setString(1, empleado.getCedula());
 			statement.setString(2, empleado.getNombre());
