@@ -12,7 +12,6 @@ import java.util.LinkedList;
 public class MostrarTodo extends JFrame {
 
 	public void mostrar(){
-		/*---hgfjhgjhg--*/
 		JFrame frame =new JFrame("Mostrar");
 
 		// creamos el modelo de Tabla

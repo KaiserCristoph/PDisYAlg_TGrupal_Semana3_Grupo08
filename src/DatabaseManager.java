@@ -13,7 +13,6 @@ public class DatabaseManager {
 	
 	
 	static{
-			//se agrego 
 			databaseConnection = null;
 			
 		try {
