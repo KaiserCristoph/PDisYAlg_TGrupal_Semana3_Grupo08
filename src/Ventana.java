@@ -182,32 +182,19 @@ public class Ventana {
 		frame.setUndecorated(true);
 		frame.setLocationRelativeTo(null);
 		
-		/*
-		textCedula = new JTextField();
-		textCedula.setBounds(132, 36, 86, 20);
-		frame.getContentPane().add(textCedula);
-		textCedula.setColumns(10);
-		
-		textApellido = new JTextField();
-		textApellido.setBounds(132, 114, 86, 20);
-		frame.getContentPane().add(textApellido);
-		textApellido.setColumns(10);
-		
-		textNombre = new JTextField();
-		textNombre.setBounds(132, 69, 86, 20);
-		frame.getContentPane().add(textNombre);
-		textNombre.setColumns(10);
-		*/
 		JButton btnAlta = new JButton("Alta");
 		btnAlta.setBackground(new Color(255, 255, 255));
 		btnAlta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String ci=txtCedula.getText();
-				String nombre=txtNombre.getText();
-				String apellido=txtApellido.getText();
-				Empleado e = new Empleado(ci,nombre,apellido);
-				DAOEmpleados.insert(e);
-				JOptionPane.showMessageDialog(null, "Exito","Exito", JOptionPane.INFORMATION_MESSAGE);
+					String ci=txtCedula.getText();
+					String nombre=txtNombre.getText();
+					String apellido=txtApellido.getText();
+					if(verificarLargo(nombre.length(), apellido.length(), ci.length())) {
+						Empleado e = new Empleado(ci,nombre,apellido);
+						DAOEmpleados.insert(e);
+						JOptionPane.showMessageDialog(null, "Exito","Exito", JOptionPane.INFORMATION_MESSAGE);
+						
+					}
 			}
 		});
 		btnAlta.setBounds(285, 68, 116, 23);
@@ -231,12 +218,11 @@ public class Ventana {
 		btnBuscar.setBackground(new Color(255, 255, 255));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+					String ci=txtCedula.getText();
 				
-				String ci=txtCedula.getText();
-			
-				Empleado re=DAOEmpleados.find(ci);
-				txtNombre.setText(re.getNombre());
-				txtApellido.setText(re.getApellido());
+					Empleado re=DAOEmpleados.find(ci);
+					txtNombre.setText(re.getNombre());
+					txtApellido.setText(re.getApellido());
 			}
 		});
 		btnBuscar.setBounds(285, 146, 116, 23);
@@ -246,11 +232,12 @@ public class Ventana {
 		btnModificar.setBackground(new Color(255, 255, 255));
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String ci=txtCedula.getText();
-				String nombre=txtNombre.getText();
-				String apellido=textApellido.getText();
-				Empleado e1 = new Empleado(ci,nombre,apellido);
-				DAOEmpleados.update(e1);
+					String ci=txtCedula.getText();
+					String nombre=txtNombre.getText();
+					String apellido=textApellido.getText();
+					Empleado e1 = new Empleado(ci,nombre,apellido);
+					DAOEmpleados.update(e1);
+					
 			}			
 		});
 		btnModificar.setBounds(285, 185, 116, 23);
@@ -273,18 +260,22 @@ public class Ventana {
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(113, 16, 229, 35);
 		contentPane.add(lblNewLabel_1);
-		/*
-		JLabel lblCedula = new JLabel("cedula");
-		lblCedula.setBounds(48, 39, 46, 14);
-		frame.getContentPane().add(lblCedula);
-		
-		JLabel lblNombre = new JLabel("nombre");
-		lblNombre.setBounds(48, 72, 46, 14);
-		frame.getContentPane().add(lblNombre);
-		
-		JLabel lblApellido = new JLabel("Apellido");
-		lblApellido.setBounds(48, 117, 46, 14);
-		frame.getContentPane().add(lblApellido);
-		*/
 	}
+	
+	private boolean verificarLargo(int cantNombre, int cantApellido, int cantCedula) {
+		boolean valido = true;
+		if(cantNombre >= 50) {
+			JOptionPane.showMessageDialog(null, "Se ha excedido la cantidad de caracteres para el nombre");
+			valido = false;
+		} else if(cantApellido >= 50) {
+			JOptionPane.showMessageDialog(null, "Se ha excedido la cantidad de caracteres para el apellido");
+			valido = false;
+		} else if(cantCedula >= 12) {
+			JOptionPane.showMessageDialog(null, "Se ha excedido la cantidad de caracteres para el documento");
+			valido = false;
+		}
+		
+		return valido;
+	}
+	
 }

@@ -1,6 +1,5 @@
 
 public class Empleado {
-// orale wei
 
 	private String nombre;
 	private String apellido;
@@ -14,7 +13,6 @@ public class Empleado {
 		this.cedula = cedula;
 		
 	}
-	
 	
 	public String getNombre() {
 		return nombre;
